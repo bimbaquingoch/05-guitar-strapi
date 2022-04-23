@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cursos_nuevos",
+  "info": {
+    "name": "CursosNuevos"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "imagen": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "descripcion": {
+      "type": "richtext",
+      "required": true
+    },
+    "precio": {
+      "type": "decimal",
+      "required": true
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "titulo"
+    }
+  }
+}
